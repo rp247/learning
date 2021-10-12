@@ -1,4 +1,6 @@
 /*
+ - Ref: https://www.cplusplus.com/reference/vector/vector/
+
  - Vectors are just like arrarys, except they can grow dynamically.
  - The elements could still be accessed by offset of the 0th element. 
  - Thus, they alloacte more space in advance to not reallocate too many times.
@@ -76,6 +78,14 @@ int main(){
 
     // [] . returns reference to vector element
     cout << "3rd elem of fill2 = " << (fill2[2] = 9);
+
+    /*
+     ITERATORS
+     .{r|cr}begin() : returns it to the {reverse|const.rev}beginning element
+     .{r|cr}end() : returns it to the {reverse|const.rev}end element
+    */
+
+   /* CONT: capacity  https://www.cplusplus.com/reference/vector/vector/ */
 
     return 0;
 }
