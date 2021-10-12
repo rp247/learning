@@ -15,8 +15,16 @@
 */
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
+
+void vc_print(vector<int> &v) {
+    for (vector<int>::iterator it = v.begin(); it != v.end(); it++) {
+        cout << ' ' << *it;
+    }
+    cout << endl;
+}
 
 int main(){
 
@@ -37,8 +45,9 @@ int main(){
     /* 
     range :  Constructs a container with as many elements as the range [first,last), with each element emplace-constructed from its corresponding element in that range, in the same order.
              template <class InputIterator>; vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
+             useful when one does not want to copy whole vector but wants a range of elements
     */
-    vector<int> range = vector<int>(fill.begin(), fill.end());
+    vector<int> range = vector<int>(fill.begin(), fill.end()-3);
 
     /* 
     copy :  container with copy of each elements of x in the same order
@@ -46,7 +55,18 @@ int main(){
     */
     vector<int> copy = vector<int>(fill);
 
+    // from array (iterator)
+    int temp[] = {0, 1, 2, 3, 4};
+    vector<int> from_arr = vector<int>(temp, temp+(sizeof(temp)/sizeof(int)));
+
     // continue: move and initializer list
+
+    /* CONSTRUCTOR & PRINT TEST */
+    cout << "Empty Vector: "; vc_print(empty);
+    cout << "Fill Vector: (10 -1s)"; vc_print(fill);
+    cout << "Range Vector: (fill begin to end-3, same elements)"; vc_print(range);
+    cout << "Copy Vector: (copy fill)"; vc_print(copy);
+    cout << "From_arr Vector: "; vc_print(from_arr);
 
     return 0;
 }
