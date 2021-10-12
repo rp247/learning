@@ -62,11 +62,20 @@ int main(){
     // continue: move and initializer list
 
     /* CONSTRUCTOR & PRINT TEST */
-    cout << "Empty Vector: "; vc_print(empty);
-    cout << "Fill Vector: (10 -1s)"; vc_print(fill);
-    cout << "Range Vector: (fill begin to end-3, same elements)"; vc_print(range);
-    cout << "Copy Vector: (copy fill)"; vc_print(copy);
-    cout << "From_arr Vector: "; vc_print(from_arr);
+    cout << "Empty Vector : "; vc_print(empty);
+    cout << "Fill Vector : (10 -1s)"; vc_print(fill);
+    cout << "Range Vector : (fill begin to end-3, same elements)"; vc_print(range);
+    cout << "Copy Vector : (copy fill)"; vc_print(copy);
+    cout << "From_arr Vector : "; vc_print(from_arr);
+
+
+    /* OPERATORS */
+
+    // = . copies elements into a vector (or a container) from a vector (container, or an initializer list)
+    vector<int> fill2 = fill;
+
+    // [] . returns reference to vector element
+    cout << "3rd elem of fill2 = " << (fill2[2] = 9);
 
     return 0;
 }
