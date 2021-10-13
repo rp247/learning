@@ -77,7 +77,7 @@ int main(){
     vector<int> fill2 = fill;
 
     // [] . returns reference to vector element
-    cout << "3rd elem of fill2 = " << (fill2[2] = 9);
+    cout << "3rd elem of fill2 = " << (fill2[2] = 9) << endl;
 
     /*
      ITERATORS
@@ -86,6 +86,31 @@ int main(){
     */
 
    /* CONT: capacity  https://www.cplusplus.com/reference/vector/vector/ */
+
+
+
+   /* CAPACITY */
+   
+    /*
+      resize : void resize (size_type n, value_type val = value_type());
+      resizes the vector to size n, {filling empty spaces with *val* if given else not}
+      if n < current size, elements are shrunk and destroyed
+      if n > size or capacity, appended or reallocated and empty spaces filled with *val* if supplied
+    */
+
+   range.resize(5, -9); cout << "Resized (shrunk) range: "; vc_print(range);
+   range.resize(15, -9); cout << "Resized (expand) range: "; vc_print(range);
+
+   cout << "Size of range = " << range.size() << endl; // size
+   cout << "Capacity (b4) of range = " << range.capacity() << endl; // capacity
+   cout << "Capacity +10 " << endl; range.reserve(range.capacity()+10); // if reserve > curr capacity, realloc (no size elem change). else ignore
+   cout << "Capacity (aft) of range = " << range.capacity() << endl; 
+   cout << "Shrinking to fit the size.\n"; range.shrink_to_fit();   // shrinks to fit the size of container. Lib dependent. May cause reallocation. 
+   cout << "Capacity (aft) shrink = " << range.capacity() << endl;
+   cout << "Max_size of range = " << range.max_size() << endl; // max container size
+   cout << "Range empty? " << (range.empty() ? "True\n" : "False\n"); // empty. size == 0?
+
+
 
     return 0;
 }
