@@ -138,7 +138,35 @@ int main(){
    /* MODIFIERS */
    cout << "\nMODIFIERS\n";
 
-   /* CONT: capacity  https://www.cplusplus.com/reference/vector/vector/ */
+   /* 
+    assign : Assigns new contents to the vector, replacing its current contents, and modifying its size accordingly.
+             Destroys all the old elements. Realloc iff new size > old capacity. (use for new default constructed vectors)
+    fill : void assign (size_type n, const value_type& val) : assign n elements with val *val*
+    range : void assign (InputIterator first, InputIterator last) : assign from first iter to last (not included) iter
+    initializer list : void assign (initializer_list<value_type> il);
+    */
+   cout << "Reassign range 5 elems with val 7: "; range.assign(5, 7); vc_print(range);
+   cout << "Reassign range from_arr reverse iterators: "; range.assign(from_arr.crbegin(), from_arr.crend()); vc_print(range);
+
+    // pushing and popping back
+    cout << "Pushed back 100. Range: "; range.push_back(100); vc_print(range);
+    cout << "Popping back (end elem). Range: "; range.pop_back(); vc_print(range);
+
+    /* 
+     insert : insert elements befrore given iterator position. inefficient af. reallocation and moving of old elems. (only if > capacity)
+              returns pointer to first of the newly inserted element
+     one elem : insert(pos iter, val) : single elem before pos
+     fill : insert(iter pos, n elems, val) : n elems of val before pos
+     range : insert(iter pos, iter first, iter last) : from first to last (not inclusive) before pos
+     init list : insert (iter pos, initializer list il)
+    */
+    vector<int>::iterator it;
+    cout << "Inserting -3 before 2. Range: " ; (it = range.insert(range.begin()+2, -3)); vc_print(range);
+    cout << "Inserting -2 before -3. Range: " ; (it = range.insert(it, -2)); vc_print(range);
+    cout << "Filling 5 23s before -2. Range: "; (it = range.insert(it, 5, 23)); vc_print(range);
+    cout << "Filling from_arr to from_arr+3 at the front. Range: "; (it = range.insert(range.begin(), from_arr.begin(), from_arr.begin()+3)); vc_print(range);
+
+    /* CONT: erase (modifiers)  https://www.cplusplus.com/reference/vector/vector/ */
 
     return 0;
 }
