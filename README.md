@@ -8,4 +8,4 @@ Python ref:
 C++:
 - Containers : https://en.cppreference.com/w/cpp/container
 - Vectors : https://en.cppreference.com/w/cpp/container/vector 
-- what are allocators? containers? templates?
+- what are allocators? containers? templates? initializer list?.
