@@ -31,6 +31,7 @@ void vc_print(vector<int> &v) {
 int main(){
 
     /* Constructors: https://www.cplusplus.com/reference/vector/vector/vector/ */
+    cout << "CONSTRUCTOR\n";
 
     /* 
     empty :  returns an empty vector. 
@@ -79,14 +80,12 @@ int main(){
     // [] . returns reference to vector element
     cout << "3rd elem of fill2 = " << (fill2[2] = 9) << endl;
 
+
     /*
      ITERATORS
      .{r|cr}begin() : returns it to the {reverse|const.rev}beginning element
      .{r|cr}end() : returns it to the {reverse|const.rev}end element
     */
-
-   /* CONT: capacity  https://www.cplusplus.com/reference/vector/vector/ */
-
 
 
    /* CAPACITY */
@@ -98,6 +97,7 @@ int main(){
       if n > size or capacity, appended or reallocated and empty spaces filled with *val* if supplied
     */
 
+   cout << "\nCAPACITY\n";
    range.resize(5, -9); cout << "Resized (shrunk) range: "; vc_print(range);
    range.resize(15, -9); cout << "Resized (expand) range: "; vc_print(range);
 
@@ -111,6 +111,34 @@ int main(){
    cout << "Range empty? " << (range.empty() ? "True\n" : "False\n"); // empty. size == 0?
 
 
+   /* ELEMENT ACCESS */
+   cout << "\nELEMENT ACCESS\n";
+
+   // vector[i] : operator[] (size_type n); const_reference operator[] (size_type n) const;
+   int &t = range[5]; t += 5; // returns reference to elem at vector[i], no bound checking (used at() instead)
+   cout << "Range[5] = " << range[5] << endl; // range[50] would give segfault
+
+   // vector.at(i) : checks for out_of_range exception
+   int access = 60;
+   try {
+        t = range.at(access);
+        cout << "Element at index " << access << " = " << t << endl;
+   } catch(out_of_range) {
+       cout << access << " index out_of_range exception" << endl;
+   }
+
+   // front and back : vector.{front()|back()} : returns (const) reference to first or last elem of the vector
+   cout << "Range front = " << range.front() << ". Range back =  " << range.back() << ".\n";
+
+   // data : pointer to first elem of vector
+   int *p = range.data();
+   cout << "First elem of range. Mem address : " << p << ". Value: " << *p << endl;
+
+
+   /* MODIFIERS */
+   cout << "\nMODIFIERS\n";
+
+   /* CONT: capacity  https://www.cplusplus.com/reference/vector/vector/ */
 
     return 0;
 }
