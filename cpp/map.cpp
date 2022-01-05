@@ -15,10 +15,19 @@ template < class Key,                                     // map::key_type
 
 using namespace std;
 
+void map_print(map<int, int> &m) {
+    for (map<int, int>::iterator t = m.begin(); t != m.end(); t++) {
+        cout << t->first << ':' << t->second << endl;
+    }
+    return;
+}
+
 int main(){
 
    map<int, int> m;
-   m[0] = '1';
+   m[0] = -1;
+
+   map_print(m);
 
     return 0;
 }
