@@ -38,6 +38,7 @@ class student {
         ~student(void);    // automatically called when var out of scope
 
         // copy constructor : called everytime class is passed by value to make a copy and work on that copy
+        // make it private if it should not be used (compile time err) or quit
         student(const student &s); // const since not updating s but making a copy of s
         void temp_update_student(student s); // test copy constructor
 };
